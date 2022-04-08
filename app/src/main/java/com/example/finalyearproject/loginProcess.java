@@ -1,0 +1,90 @@
+package com.example.finalyearproject;
+
+import android.os.AsyncTask;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
+public class loginProcess extends AsyncTask<String, Void, String> {
+
+    //initialise AsyncResponse interface as null
+    public AsyncResponse delegate = null;
+
+    //after doInBackground finishes executing, use AR interface to return result
+    @Override
+    protected void onPostExecute(String result) {
+        delegate.processFinish(result);
+    }
+
+    //connect to MySQL DB via PHP on IGOR server to check username/password and get user info
+    @Override
+    protected String doInBackground(String... strings) {
+
+        String result = "";
+
+        //get username and password from function call
+        String user = strings[0];
+        String pass = strings[1];
+
+        //IP address of Apache server with login PHP script
+//        String connstr = "http://192.168.1.179:80/FYP/login.php"; //off-campus
+//        String connstr = "http://10.100.59.97:80/FYP/login.php"; //on-campus (doesn't work for now)
+
+        String connstr = "https://www.doc.gold.ac.uk/~ddoch001/Year3/FYP/login.php"; //now hosted on IGOR!
+
+        //connect to IGOR and use POST to send username/password
+        try {
+            URL url = new URL(connstr);
+
+            //create connection
+            HttpURLConnection http = (HttpURLConnection) url.openConnection();
+            http.setRequestMethod("POST");
+            http.setDoInput(true);
+            http.setDoOutput(true);
+
+            //encode data to UTF-8
+            OutputStream ops = http.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(ops,"UTF-8"));
+            String data = URLEncoder.encode("user", "UTF-8") + "=" + URLEncoder.encode(user, "UTF-8")
+                    + "&&" + URLEncoder.encode("pass", "UTF-8") + "=" + URLEncoder.encode(pass, "UTF-8");
+
+            //send data
+            writer.write(data);
+            writer.flush();
+            writer.close();
+            ops.close();
+
+            //read JSON response from PHP script
+            InputStream ips = http.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(ips, "ISO-8859-1"));
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                result += line;
+            }
+
+            //close everything and disconnect
+            reader.close();
+            ips.close();
+            http.disconnect();
+
+        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+            result = e.getMessage();
+        } catch (IOException e) {
+//            e.printStackTrace();
+            result = e.getMessage();
+        }
+
+        System.out.println("LP result: " + result);
+        return result;
+    }
+}

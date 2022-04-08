@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Final Year Project</string>
+    <string name="app_title">FYP</string>
+    <string name="login_button">Login</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_profile">Profile</string>
+    <string name="search_paragraph">Please enter your search terms:</string>
+    <string name="button_myBio">My Bio</string>
+    <string name="button_myGroups">My Groups</string>
+    <string name="button_myInterests">My Interests</string>
+    <string name="button_signOut">Sign Out</string>
+    <string name="title_bio">Bio</string>
+    <string name="button_updateBio">Update Bio</string>
+    <string name="header_home">Your events:</string>
+</resources>
