@@ -22,6 +22,7 @@
         android:name="com.example.finalyearproject.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
     <fragment
         android:id="@+id/bioFragment"
         android:name="com.example.finalyearproject.ui.bio.BioFragment"

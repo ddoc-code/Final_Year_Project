@@ -1,5 +1,6 @@
 package com.example.finalyearproject.ui.bio;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -48,6 +49,9 @@ public class BioFragment extends Fragment implements AsyncResponse {
         //extract currentUser data from intent
         Intent intent = getActivity().getIntent();
         currentUser cu = (currentUser) intent.getSerializableExtra("current_user");
+
+        //set title bar text
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("My Bio");
 
         EditText bioText = binding.bioText;
 

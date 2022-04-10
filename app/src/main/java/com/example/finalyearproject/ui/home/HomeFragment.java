@@ -12,12 +12,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalyearproject.AsyncResponse;
 import com.example.finalyearproject.HomeActivity;
 import com.example.finalyearproject.R;
 import com.example.finalyearproject.currentUser;
 import com.example.finalyearproject.databinding.FragmentHomeBinding;
+import com.example.finalyearproject.event;
+import com.example.finalyearproject.eventRecyclerViewAdapter;
 import com.example.finalyearproject.loginProcess;
 import com.example.finalyearproject.retrieveEventsProcess;
 
@@ -25,10 +29,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class HomeFragment extends Fragment implements AsyncResponse {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+
+    private RecyclerView recyclerView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -82,49 +90,61 @@ public class HomeFragment extends Fragment implements AsyncResponse {
             //outer JSON object
             //contains "success" and "events" keys and values
             JSONObject json = new JSONObject(output);
-            System.out.println("json: " + json);
+//            System.out.println("json: " + json);
 
-            //check events were successfully retrieved
+            //check if events were successfully retrieved
             if ((Integer) json.get("success") == 1) {
 
                 //JSON array containing inner JSON object (value of above "events" key)
                 //contains events
                 JSONArray jsonArr = (JSONArray) json.get("events");
-                System.out.println("json array: " + jsonArr);
-                System.out.println("Length: " + jsonArr.length());
+//                System.out.println("json array: " + jsonArr);
+//                System.out.println("Length: " + jsonArr.length());
 
-                //inner JSON object
-                JSONObject jsonChild = jsonArr.getJSONObject(0);
-//                JSONObject jsonChild2 = jsonArr.getJSONObject(1);
-                System.out.println("0:" + jsonArr.getJSONObject(0));
-                System.out.println("1:" + jsonArr.getJSONObject(1));
-                System.out.println("2:" + jsonArr.getJSONObject(2));
-                //TODO: Continue from here. Do I want to use a recyclerview to display the event cards?
+                //initialise arraylist to store events
+                ArrayList<event> eventList = new ArrayList<event>();
 
-                //grab JSON data (currently grabs only from 1st event)
-                String title = (String) jsonChild.get("title");
-                String desc = (String) jsonChild.get("description");
-                String date = (String) jsonChild.get("date");
-                String time = (String) jsonChild.get("time");
-                String category = (String) jsonChild.get("category");
-                String ticketPrice = (String) jsonChild.get("ticketPrice");
-                String page = (String) jsonChild.get("ticketsPage");
+                //fill arraylist with events
+                for (int i = 0; i < jsonArr.length(); i++) {
 
-                String out = title + desc + date + time + category + ticketPrice + page;
+                    //get each json event in turn
+                    JSONObject jsonEvent = jsonArr.getJSONObject(i);
 
-                TextView tv = getActivity().findViewById(R.id.textView);
-                tv.setText(out);
+                    //grab JSON data from this event
+                    int id = Integer.parseInt((String) jsonEvent.get("id"));
+                    int venueID = Integer.parseInt((String) jsonEvent.get("venueID"));
+                    String title = (String) jsonEvent.get("title");
+                    String desc = (String) jsonEvent.get("description");
+                    String date = (String) jsonEvent.get("date");
+                    String time = (String) jsonEvent.get("time");
+                    String category = (String) jsonEvent.get("category");
+                    String category2 = (String) jsonEvent.get("category2");
+                    Boolean ticketsNeeded = (Integer.parseInt((String) jsonEvent.get("ticketsNeeded")) == 1);
+                    String ticketPrice = (String) jsonEvent.get("ticketPrice");
+                    String page = (String) jsonEvent.get("ticketsPage");
+
+                    event newEvent = new event(id, venueID, title, desc, date, time, category, category2, ticketsNeeded, ticketPrice, page);
+
+                    eventList.add(newEvent);
+                }
+
+                //initialise recyclerView, adapter and LLManager
+                recyclerView = getActivity().findViewById(R.id.home_recyclerview);
+                eventRecyclerViewAdapter adapter = new eventRecyclerViewAdapter(eventList);
+                LinearLayoutManager llm = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                recyclerView.setLayoutManager(llm);
+                recyclerView.setAdapter(adapter);
+
             }
 
             else {
-                TextView tv = getActivity().findViewById(R.id.home_yourEvents);
-                tv.setText("You have no interests!");
+//                TextView tv = getActivity().findViewById(R.id.home_yourEvents);
+//                tv.setText("You have no interests!");
             }
 
-            //catch block is reached when login is unsuccessful
+            //catch JSON errors
         } catch (JSONException e) {
             e.printStackTrace();
-//            System.out.println("SOME FAILURE");
         }
     }
 }

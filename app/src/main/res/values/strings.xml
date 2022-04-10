@@ -14,4 +14,6 @@
     <string name="title_bio">Bio</string>
     <string name="button_updateBio">Update Bio</string>
     <string name="header_home">Your events:</string>
+    <string name="bio_paragraph">Your biography:</string>
+    <string name="bio_load">Bio loading...</string>
 </resources>

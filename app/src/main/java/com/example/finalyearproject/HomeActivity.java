@@ -8,6 +8,7 @@ import android.widget.EditText;
 import com.example.finalyearproject.databinding.FragmentBioBinding;
 import com.example.finalyearproject.databinding.FragmentProfileBinding;
 import com.example.finalyearproject.ui.bio.BioFragment;
+import com.example.finalyearproject.ui.eventDetail.EventDetailFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-    //My Bio button on profile fragment
+    //enter Bio fragment when My Bio button is clicked on Profile fragment
     public void enterBio(View view) {
 
         //this block works but does not display the bottom nav bar
@@ -62,10 +63,5 @@ public class HomeActivity extends AppCompatActivity {
         transaction.replace(R.id.nav_host_fragment_activity_home, bioFragment);
         transaction.addToBackStack(null);
         transaction.commit();
-    }
-
-    //Called when clicking an event card on home fragment
-    public void testFunc(View view) {
-        System.out.println("EVENT CLICKED!");
     }
 }
