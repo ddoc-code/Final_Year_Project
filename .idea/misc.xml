@@ -7,13 +7,18 @@
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/activity_main.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_bio.xml" value="0.25" />
+        <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_create_group.xml" value="0.171875" />
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_dashboard.xml" value="0.275" />
-        <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_event_detail.xml" value="0.15234375" />
+        <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_event_detail.xml" value="0.22" />
+        <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_event_groups.xml" value="0.21" />
+        <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_group_detail.xml" value="0.25" />
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_notifications.xml" value="0.275" />
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/recyclerview_card.xml" value="0.22" />
+        <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/recyclerview_card_event.xml" value="0.275" />
+        <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/layout/recyclerview_card_group.xml" value="0.2" />
         <entry key="..\:/Users/Dave/AndroidStudioProjects/FinalYearProject/app/src/main/res/menu/bottom_nav_menu.xml" value="0.152734375" />
       </map>
     </option>

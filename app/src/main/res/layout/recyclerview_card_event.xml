@@ -18,40 +18,60 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/cardEventCategoryImage"
+            android:id="@+id/card_event_category_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:padding="5dp"
             android:src="@drawable/ic_dashboard_black_24dp" />
 
         <TextView
-            android:id="@+id/cardEventTitle"
-            android:layout_width="match_parent"
+            android:id="@+id/card_event_venue"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/cardEventCategoryImage"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/card_event_category_image"
+            android:drawablePadding="2dp"
+            android:ellipsize="end"
+            android:text="EVENT VENUE"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/card_event_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card_event_venue"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/card_event_category_image"
             android:ellipsize="end"
             android:maxLines="2"
             android:scrollHorizontally="true"
-            android:text="EVENT TITLE"
 
+            android:text="EVENT TITLE"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/cardEventDesc"
+            android:id="@+id/card_event_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cardEventTitle"
+            android:layout_below="@id/card_event_title"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@id/cardEventCategoryImage"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+
+            android:layout_toEndOf="@id/card_event_category_image"
             android:drawablePadding="2dp"
             android:ellipsize="end"
-
             android:maxLines="5"
             android:scrollHorizontally="true"
             android:text="EVENT TEXT" />

@@ -1,6 +1,5 @@
 package com.example.finalyearproject;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
@@ -15,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class retrieveEventsProcess extends AsyncTask<String, Void, String> {
+public class retrieveGroupsProcess extends AsyncTask<String, Void, String> {
 
     //initialise AsyncResponse interface as null
     public AsyncResponse delegate = null;
@@ -26,18 +25,17 @@ public class retrieveEventsProcess extends AsyncTask<String, Void, String> {
         delegate.processFinish(result);
     }
 
-    //connect to MySQL DB via PHP on IGOR server to retrieve events that match user interests
     @Override
     protected String doInBackground(String... strings) {
 
         String result = "";
 
-        //get userID
-        String userID = strings[0];
+        //get eventID
+        String eventID = strings[0];
 
-        String connstr = "https://www.doc.gold.ac.uk/~ddoch001/Year3/FYP/retrieveEvents.php"; //now hosted on IGOR!
+        String connstr = "https://www.doc.gold.ac.uk/~ddoch001/Year3/FYP/retrieveGroups.php";
 
-        //connect to IGOR and use POST to send userID
+        //connect to IGOR and use POST to send eventID
         try {
             URL url = new URL(connstr);
 
@@ -50,7 +48,7 @@ public class retrieveEventsProcess extends AsyncTask<String, Void, String> {
             //encode data to UTF-8
             OutputStream ops = http.getOutputStream();
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(ops,"UTF-8"));
-            String data = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(userID, "UTF-8");
+            String data = URLEncoder.encode("eventID", "UTF-8") + "=" + URLEncoder.encode(eventID, "UTF-8");
 
             //send data
             writer.write(data);
@@ -79,9 +77,7 @@ public class retrieveEventsProcess extends AsyncTask<String, Void, String> {
             result = e.getMessage();
         }
 
-        System.out.println("REP result: " + result);
+        System.out.println("RGP result: " + result);
         return result;
     }
-
-
 }

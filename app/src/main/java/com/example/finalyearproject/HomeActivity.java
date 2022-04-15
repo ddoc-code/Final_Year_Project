@@ -22,7 +22,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.finalyearproject.databinding.ActivityHomeBinding;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
 
     private ActivityHomeBinding binding;
     private currentUser cu;
@@ -38,6 +38,12 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         cu = (currentUser) intent.getSerializableExtra("current_user");
 //        getIntent().putExtra("current_user", cu); //i think this can be deleted. comment out for now and delete if nothing breaks.
+
+        //BACKSTACK STUFF
+        //Listen for changes in the back stack
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
+        //Handle when activity is recreated like on orientation Change
+        shouldDisplayHomeUp();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -64,4 +70,24 @@ public class HomeActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+    //These functions implement the back button on the action bar after navigating to a fragment
+    @Override
+    public void onBackStackChanged() {
+        shouldDisplayHomeUp();
+    }
+
+    public void shouldDisplayHomeUp(){
+        //Enable Up button only  if there are entries in the back stack
+        boolean canGoBack = getSupportFragmentManager().getBackStackEntryCount()>0;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(canGoBack);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        //This method is called when the up button is pressed. Just the pop back stack.
+        getSupportFragmentManager().popBackStack();
+        return true;
+    }
+    
 }

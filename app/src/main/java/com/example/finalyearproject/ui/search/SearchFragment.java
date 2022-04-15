@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -33,6 +34,9 @@ public class SearchFragment extends Fragment {
 
         binding = FragmentSearchBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        //set title bar text
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Search");
 
 //        final TextView textView = binding.textSearch;
 //        searchViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

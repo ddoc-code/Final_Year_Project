@@ -1,8 +1,10 @@
 package com.example.finalyearproject;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class event {
+//class implements Serializable interface to allow user data to
+//be passed between activities using the Intent putExtra method
+public class event implements Serializable {
 
     int id;
     int venueID;

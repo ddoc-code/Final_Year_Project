@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -43,6 +44,9 @@ public class ProfileFragment extends Fragment {
         Intent intent = getActivity().getIntent();
         currentUser cu = (currentUser) intent.getSerializableExtra("current_user");
 //        System.out.println(Arrays.toString(cu.getInterestsArr()));
+
+        //set title bar text
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Profile");
 
 //        final TextView textView = binding.textProfile;
         TextView textView = binding.profileUsername;

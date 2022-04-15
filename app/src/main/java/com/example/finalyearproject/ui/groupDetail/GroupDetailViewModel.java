@@ -1,16 +1,16 @@
-package com.example.finalyearproject.ui.eventDetail;
+package com.example.finalyearproject.ui.groupDetail;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class EventDetailViewModel extends ViewModel {
+public class GroupDetailViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public EventDetailViewModel() {
+    public GroupDetailViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is the event detail fragment");
+        mText.setValue("This is the group detail fragment");
     }
 
     public LiveData<String> getText() {return mText;}

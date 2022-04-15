@@ -16,4 +16,8 @@
     <string name="header_home">Your events:</string>
     <string name="bio_paragraph">Your biography:</string>
     <string name="bio_load">Bio loading...</string>
+    <string name="event_details">EVENT DETAILS:</string>
+    <string name="button_viewGroups">View Groups</string>
+    <string name="event_groups">GROUPS ATTENDING:</string>
+    <string name="button_createGroup">Create New Group</string>
 </resources>
