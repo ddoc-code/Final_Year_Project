@@ -73,7 +73,7 @@ public class groupRecyclerViewAdapter extends RecyclerView.Adapter<groupRecycler
             int clickedPosition = (int) v.getTag();
 
             Intent intent = ((Activity) context).getIntent();
-            intent.putExtra("group", groupArrayList.get(clickedPosition));
+            intent.putExtra("group", groupArrayList.get(clickedPosition)); //Serializable interface allows this
 
             //enter GroupDetail fragment when a group card is clicked
             Fragment groupDetailFragment = new GroupDetailFragment();

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.groupDetail.GroupDetailFragment" >
+    tools:context=".ui.groupDetail.GroupDetailFragment">
 
     <ScrollView
         android:layout_width="0dp"
@@ -116,6 +116,60 @@
                         android:ellipsize="end"
                         android:text="GROUP CREATOR"
                         android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/group_detail_joinButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/group_detail_groupCreator"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/button_joinGroup" />
+
+                    <LinearLayout
+                        android:id="@+id/group_detail_expandingLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/group_detail_joinButton"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/group_detail_messageHeader"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:text="@string/request_message"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/group_detail_enterMessage"
+                            android:layout_width="match_parent"
+                            android:layout_height="170dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/edit_text_border"
+                            android:ems="10"
+                            android:gravity="top"
+                            android:hint="Message"
+                            android:inputType="textMultiLine"
+                            android:minHeight="48dp"
+                            android:padding="5dp" />
+
+                        <Button
+                            android:id="@+id/group_detail_sendButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/button_sendRequest" />
+
+                    </LinearLayout>
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

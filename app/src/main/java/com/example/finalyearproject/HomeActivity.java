@@ -56,21 +56,6 @@ public class HomeActivity extends AppCompatActivity implements FragmentManager.O
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-    //enter Bio fragment when My Bio button is clicked on Profile fragment
-    public void enterBio(View view) {
-
-        //this block works but does not display the bottom nav bar
-//        FragmentBioBinding binding2 = FragmentBioBinding.inflate(getLayoutInflater());
-//        setContentView(binding2.getRoot());
-
-        //this works, however I had to add if statements to all fragments to prevent overlapping displays
-        Fragment bioFragment = new BioFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_activity_home, bioFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
-
     //These functions implement the back button on the action bar after navigating to a fragment
     @Override
     public void onBackStackChanged() {

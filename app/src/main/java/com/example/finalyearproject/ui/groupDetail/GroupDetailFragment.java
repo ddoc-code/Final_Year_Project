@@ -14,6 +14,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.finalyearproject.R;
 import com.example.finalyearproject.currentUser;
@@ -72,9 +76,24 @@ public class GroupDetailFragment extends Fragment {
             }
         });
 
+        //set click listener for button
+        Button button = binding.groupDetailJoinButton;
+        button.setOnClickListener(onClickListener);
+
 //        return inflater.inflate(R.layout.fragment_group_detail, container, false);
         return root;
     }
+
+    //click listener for Request to Join button
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            //expand the second layout when button is clicked
+            LinearLayout ll = binding.groupDetailExpandingLL;
+            ll.setVisibility(View.VISIBLE);
+        }
+    };
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

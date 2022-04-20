@@ -20,4 +20,12 @@
     <string name="button_viewGroups">View Groups</string>
     <string name="event_groups">GROUPS ATTENDING:</string>
     <string name="button_createGroup">Create New Group</string>
+    <string name="create_group_header">Enter the details for your group:</string>
+    <string name="create_group_title">Group Title:</string>
+    <string name="create_group_description">Group Description:</string>
+    <string name="create_group_maxPeople">Maximum No. of People</string>
+    <string name="create_group_button">Create Group</string>
+    <string name="button_joinGroup">Request to Join</string>
+    <string name="request_message">Enter your message:</string>
+    <string name="button_sendRequest">Send Request</string>
 </resources>

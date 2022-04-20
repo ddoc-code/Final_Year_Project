@@ -79,6 +79,7 @@ public class EventDetailFragment extends Fragment {
             }
         });
 
+        //set click listener for button
         Button button = binding.eventDetailButton;
         button.setOnClickListener(onClickListener);
 

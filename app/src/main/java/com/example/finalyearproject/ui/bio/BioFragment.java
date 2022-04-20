@@ -77,7 +77,7 @@ public class BioFragment extends Fragment implements AsyncResponse {
                 int userID = cu.getId();
                 String updatedBio = cu.getBio();
 
-                //call updateBio function to update databse
+                //call updateBio function to update database
                 updateBio(userID, updatedBio);
             }
         });

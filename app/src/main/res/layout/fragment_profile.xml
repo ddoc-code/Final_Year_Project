@@ -6,37 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileFragment">
 
-    <Button
-        android:id="@+id/profile_button_signOut"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/button_signOut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_button_myInterests" />
-
-    <Button
-        android:id="@+id/profile_button_myInterests"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/button_myInterests"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_button_myGroups" />
-
-    <Button
-        android:id="@+id/profile_button_myBio"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:onClick="enterBio"
-        android:text="@string/button_myBio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
-
     <TextView
         android:id="@+id/profile_username"
         android:layout_width="wrap_content"
@@ -61,6 +30,17 @@
         tools:src="@tools:sample/avatars" />
 
     <Button
+        android:id="@+id/profile_button_myBio"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:onClick="enterBio"
+        android:text="@string/button_myBio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+    <Button
         android:id="@+id/profile_button_myGroups"
         android:layout_width="250dp"
         android:layout_height="60dp"
@@ -69,5 +49,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_button_myBio" />
+
+    <Button
+        android:id="@+id/profile_button_myInterests"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/button_myInterests"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_button_myGroups" />
+
+    <Button
+        android:id="@+id/profile_button_signOut"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/button_signOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_button_myInterests" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

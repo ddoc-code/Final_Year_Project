@@ -80,6 +80,7 @@ public class HomeFragment extends Fragment implements AsyncResponse {
                 textView.setText("Hello, " + cu.getUsername() + "!");
             }
         });
+
         return root;
     }
 
@@ -140,10 +141,10 @@ public class HomeFragment extends Fragment implements AsyncResponse {
                     eventList.add(newEvent);
                 }
 
-                //initialise arraylist to store events here
+                //initialise arraylist to store venues
                 ArrayList<venue> venueList = new ArrayList<venue>();
 
-                //fill arraylist with events
+                //fill arraylist with venues
                 for (int i = 0; i < jsonArr2.length(); i ++) {
 
                     //get each json venue in turn
@@ -156,8 +157,8 @@ public class HomeFragment extends Fragment implements AsyncResponse {
                     String phone = (String) jsonVenue.get("phone");
                     String email = (String) jsonVenue.get("email");
 
+                    //create new venue and add to arraylist
                     venue newVenue = new venue(id, name, address, phone, email);
-
                     venueList.add(newVenue);
                 }
 

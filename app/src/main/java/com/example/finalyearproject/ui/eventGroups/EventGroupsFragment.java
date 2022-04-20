@@ -1,6 +1,7 @@
 package com.example.finalyearproject.ui.eventGroups;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.finalyearproject.AsyncResponse;
@@ -26,6 +28,7 @@ import com.example.finalyearproject.event;
 import com.example.finalyearproject.group;
 import com.example.finalyearproject.groupRecyclerViewAdapter;
 import com.example.finalyearproject.retrieveGroupsProcess;
+import com.example.finalyearproject.ui.createGroup.CreateGroupFragment;
 import com.example.finalyearproject.venue;
 
 import org.json.JSONArray;
@@ -58,7 +61,7 @@ public class EventGroupsFragment extends Fragment implements AsyncResponse {
         binding = FragmentEventGroupsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //extract currentUser data from intent
+        //extract currentUser/event/venue data from intent
         Intent intent = getActivity().getIntent();
         currentUser cu = (currentUser) intent.getSerializableExtra("current_user");
         event event = (event) intent.getSerializableExtra("event");
@@ -78,6 +81,10 @@ public class EventGroupsFragment extends Fragment implements AsyncResponse {
                 binding.eventGroupsDesc.setText(event.getDescription());
             }
         });
+
+        //set click listener for button
+        Button button = binding.eventGroupsButton;
+        button.setOnClickListener(onClickListener);
 
         //create retrieveGroupsProcess
         retrieveGroupsProcess rgp = new retrieveGroupsProcess();
@@ -127,14 +134,14 @@ public class EventGroupsFragment extends Fragment implements AsyncResponse {
                     //create new group and add to arraylist
                     group newGroup = new group(id, eventID, title, desc, max, current, attendees, creator);
                     groupList.add(newGroup);
-
-                    //initialise recyclerView, adapter and LLManager and pass groupList
-                    recyclerView = getActivity().findViewById(R.id.groups_recyclerview);
-                    groupRecyclerViewAdapter adapter = new groupRecyclerViewAdapter(groupList, getContext());
-                    LinearLayoutManager llm = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-                    recyclerView.setLayoutManager(llm);
-                    recyclerView.setAdapter(adapter);
                 }
+
+                //initialise recyclerView, adapter and LLManager and pass groupList
+                recyclerView = getActivity().findViewById(R.id.groups_recyclerview);
+                groupRecyclerViewAdapter adapter = new groupRecyclerViewAdapter(groupList, getContext());
+                LinearLayoutManager llm = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                recyclerView.setLayoutManager(llm);
+                recyclerView.setAdapter(adapter);
             }
 
             else {
@@ -147,6 +154,20 @@ public class EventGroupsFragment extends Fragment implements AsyncResponse {
         }
 
     }
+
+    //click listener for Create New Group button
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            //go to createGroupFragment
+            Fragment createGroupFragment = new CreateGroupFragment();
+            FragmentTransaction transaction = ((AppCompatActivity) v.getContext()).getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.nav_host_fragment_activity_home, createGroupFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+    };
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

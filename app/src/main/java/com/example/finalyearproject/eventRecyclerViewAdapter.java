@@ -52,7 +52,7 @@ public class eventRecyclerViewAdapter extends RecyclerView.Adapter<eventRecycler
         return new MyViewHolder(view);
     }
 
-    //bind the data from the event arraylist to each cardView
+    //bind the data from the event/venue arraylists to each cardView
     @Override
     public void onBindViewHolder(@NonNull eventRecyclerViewAdapter.MyViewHolder holder, int position) {
         event event = eventArrayList.get(position);
