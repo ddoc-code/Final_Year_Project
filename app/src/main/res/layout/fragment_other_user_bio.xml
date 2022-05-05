@@ -7,17 +7,18 @@
     tools:context=".ui.bio.BioFragment">
 
     <TextView
-        android:id="@+id/bio_header"
+        android:id="@+id/otherUser_bio_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="@string/bio_paragraph"
+        android:text="Loading user bio..."
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/bio_text"
+    <TextView
+        android:id="@+id/otherUser_bio_text"
         android:layout_width="0dp"
         android:layout_height="367dp"
         android:layout_marginStart="32dp"
@@ -29,17 +30,19 @@
         android:inputType="textMultiLine"
         android:padding="10dp"
         android:text="@string/bio_load"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bio_header" />
+        app:layout_constraintTop_toBottomOf="@+id/otherUser_bio_header" />
 
     <Button
-        android:id="@+id/bio_button_updateBio"
+        android:id="@+id/otherUser_bio_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/button_updateBio"
+        android:text="Back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bio_text" />
+        app:layout_constraintTop_toBottomOf="@+id/otherUser_bio_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

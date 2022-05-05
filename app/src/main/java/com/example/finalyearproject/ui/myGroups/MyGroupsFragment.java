@@ -84,6 +84,7 @@ public class MyGroupsFragment extends Fragment implements AsyncResponse {
             //check groups were successfully retrieved
             if ((Integer) json.get("success") == 1) {
 
+                //get array values from keys
                 JSONArray jsonArr = (JSONArray) json.get("groups");
                 JSONArray jsonArr2 = (JSONArray) json.get("events");
                 JSONArray jsonArr3 = (JSONArray) json.get("venues");
@@ -106,9 +107,10 @@ public class MyGroupsFragment extends Fragment implements AsyncResponse {
                     int current = Integer.parseInt((String) jsonGroup.get("currentPeople"));
                     String attendees = (String) jsonGroup.get("attendees");
                     String creator = (String) jsonGroup.get("creator");
+                    int creatorID = Integer.parseInt((String) jsonGroup.get("creatorID"));
 
                     //create new group and add to arraylist
-                    group newGroup = new group(id, eventID, title, desc, max, current, attendees, creator);
+                    group newGroup = new group(id, eventID, title, desc, max, current, attendees, creator, creatorID);
                     groupList.add(newGroup);
                 }
 

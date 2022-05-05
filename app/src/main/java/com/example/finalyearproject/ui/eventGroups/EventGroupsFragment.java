@@ -130,9 +130,10 @@ public class EventGroupsFragment extends Fragment implements AsyncResponse {
                     int current = Integer.parseInt((String) jsonGroup.get("currentPeople"));
                     String attendees = (String) jsonGroup.get("attendees");
                     String creator = (String) jsonGroup.get("creator");
+                    int creatorID = Integer.parseInt((String) jsonGroup.get("creatorID"));
 
                     //create new group and add to arraylist
-                    group newGroup = new group(id, eventID, title, desc, max, current, attendees, creator);
+                    group newGroup = new group(id, eventID, title, desc, max, current, attendees, creator, creatorID);
                     groupList.add(newGroup);
                 }
 

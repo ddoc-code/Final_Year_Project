@@ -31,6 +31,7 @@ public class CreateGroupFragment extends Fragment implements AsyncResponse {
 
     private CreateGroupViewModel createGroupViewModel;
     private FragmentCreateGroupBinding binding;
+
     private currentUser cu;
     private event event;
     private venue venue;
@@ -97,7 +98,7 @@ public class CreateGroupFragment extends Fragment implements AsyncResponse {
             EditText titleInput = getActivity().findViewById(R.id.create_group_titleInput);
             EditText descInput = getActivity().findViewById(R.id.create_group_descriptionInput);
 
-            //format strings to pass to createGroupProcess
+            //format strings to pass as parameters to createGroupProcess
             String eventID = String.valueOf(event.getId());
             String groupTitle = titleInput.getText().toString();
             String groupDesc = descInput.getText().toString();
@@ -105,20 +106,22 @@ public class CreateGroupFragment extends Fragment implements AsyncResponse {
             String currentPeople = String.valueOf(1);
             String attendees = cu.getUsername();
             String creator = cu.getUsername();
+            String creatorID = String.valueOf(cu.getId());
 
             //call createGroup function to insert record in database
-            createGroup(eventID, groupTitle, groupDesc, maxPeople, currentPeople, attendees, creator);
+            createGroup(eventID, groupTitle, groupDesc, maxPeople, currentPeople, attendees, creator, creatorID);
         }
     };
 
     //this had to be in a separate function to allow the AsyncResponse to function correctly
-    public void createGroup(String eventID, String title, String desc, String max, String current, String attendees, String creator) {
+    public void createGroup(String eventID, String title, String desc, String max, String current, String attendees, String creator, String creatorID) {
+
         //create createGroupProcess
         createGroupProcess cgp = new createGroupProcess();
         //connect rgp with this activity using AsyncResponse interface
         cgp.delegate = this;
         //execute AsyncTask with relevant parameters
-        cgp.execute(eventID, title, desc, max, current, attendees, creator);
+        cgp.execute(eventID, title, desc, max, current, attendees, creator, creatorID);
     }
 
     @Override

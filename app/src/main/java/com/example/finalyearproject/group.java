@@ -2,7 +2,7 @@ package com.example.finalyearproject;
 
 import java.io.Serializable;
 
-//class implements Serializable interface to allow user data to
+//class implements Serializable interface to allow group data to
 //be passed between activities using the Intent putExtra method
 public class group implements Serializable {
 
@@ -14,8 +14,9 @@ public class group implements Serializable {
     int currentPeople;
     String[] attendeesArr;
     String creator;
+    int creatorID;
 
-    public group(int id, int eventID, String title, String description, int maxPeople, int currentPeople, String attendees, String creator) {
+    public group(int id, int eventID, String title, String description, int maxPeople, int currentPeople, String attendees, String creator, int creatorID) {
         this.id = id;
         this.eventID = eventID;
         this.title = title;
@@ -24,6 +25,7 @@ public class group implements Serializable {
         this.currentPeople = currentPeople;
         this.attendeesArr = attendees.split(",");
         this.creator = creator;
+        this.creatorID = creatorID;
     }
 
     public int getId() {
@@ -88,5 +90,13 @@ public class group implements Serializable {
 
     public void setCreator(String creator) {
         this.creator = creator;
+    }
+
+    public int getCreatorID() {
+        return creatorID;
+    }
+
+    public void setCreatorID(int creatorID) {
+        this.creatorID = creatorID;
     }
 }

@@ -37,6 +37,7 @@ public class createGroupProcess extends AsyncTask<String, Void, String> {
         String currentPeople = strings[4];
         String attendees = strings[5];
         String creator = strings[6];
+        String creatorID = strings[7];
 
         String connstr = "https://www.doc.gold.ac.uk/~ddoch001/Year3/FYP/createGroup.php";
 
@@ -60,7 +61,8 @@ public class createGroupProcess extends AsyncTask<String, Void, String> {
                     + "&&" + URLEncoder.encode("maxPeople", "UTF-8") + "=" + URLEncoder.encode(maxPeople, "UTF-8")
                     + "&&" + URLEncoder.encode("currentPeople", "UTF-8") + "=" + URLEncoder.encode(currentPeople, "UTF-8")
                     + "&&" + URLEncoder.encode("attendees", "UTF-8") + "=" + URLEncoder.encode(attendees, "UTF-8")
-                    + "&&" + URLEncoder.encode("creator", "UTF-8") + "=" + URLEncoder.encode(creator, "UTF-8");
+                    + "&&" + URLEncoder.encode("creator", "UTF-8") + "=" + URLEncoder.encode(creator, "UTF-8")
+                    + "&&" + URLEncoder.encode("creatorID", "UTF-8") + "=" + URLEncoder.encode(creatorID, "UTF-8");
 
             //send data
             writer.write(data);

@@ -2,7 +2,7 @@ package com.example.finalyearproject;
 
 import java.io.Serializable;
 
-//class implements Serializable interface to allow user data to
+//class implements Serializable interface to allow venue data to
 //be passed between activities using the Intent putExtra method
 public class venue implements Serializable {
 

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Final Year Project</string>
-    <string name="app_title">FYP</string>
+    <string name="app_title">NEAR</string>
     <string name="login_button">Login</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
@@ -28,4 +28,8 @@
     <string name="button_joinGroup">Request to Join</string>
     <string name="request_message">Enter your message:</string>
     <string name="button_sendRequest">Send Request</string>
+    <string name="button_sendMessage">Send Message</string>
+    <string name="button_viewRequests">View Join Requests</string>
+    <string name="view_userBio_prompt">Click to view this users bio</string>
+    <string name="create_user_header">Please enter your details to create an account:</string>
 </resources>

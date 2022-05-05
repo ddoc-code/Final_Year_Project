@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
 //            System.out.println("json: " + json);
 //            System.out.println("success: " + json.get("success"));
 
-            //JSON array containing inner JSON object
+            //JSON array containing inner JSON objects
             JSONArray jsonArr = (JSONArray) json.get("user");
 //            System.out.println("json array: " + jsonArr);
 

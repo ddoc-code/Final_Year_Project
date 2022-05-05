@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity implements FragmentManager.O
     //These functions implement the back button on the action bar after navigating to a fragment
     @Override
     public void onBackStackChanged() {
+        System.out.println("BACKSTACK COUNT: " + getSupportFragmentManager().getBackStackEntryCount());
         shouldDisplayHomeUp();
     }
 

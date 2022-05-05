@@ -1,37 +1,26 @@
 package com.example.finalyearproject;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
-//class to store the details of the currently logged in user
-//class implements Serializable interface to allow user data to
+//class to store details of non-logged in users
+//class implements Serializable interface to allow otherUser data to
 //be passed between activities using the Intent putExtra method
-public class currentUser implements Serializable {
+public class otherUser implements Serializable {
 
-    Boolean loggedIn;
     int id;
     String username;
-    String password;
-    String email;
     String location;
     String bio;
     String interests;
     String[] interestsArr;
 
-    public currentUser() {
-        this.loggedIn = false;
-    }
-
-    public void setUserInfo(int id, String username, String password, String email, String location, String bio, String interests) {
+    public otherUser(int id, String username, String location, String bio, String interests) {
         this.id = id;
         this.username = username;
-        this.password = password;
-        this.email = email;
         this.location = location;
         this.bio = bio;
         this.interests = interests;
         this.interestsArr = interests.split(",");
-        this.loggedIn = true;
     }
 
     public int getId() {
@@ -48,22 +37,6 @@ public class currentUser implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getLocation() {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.insideGroup.InsideGroupFragment" >
+    tools:context=".ui.groupRequests.GroupRequestsFragment" >
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -21,10 +21,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingStart="32dp"
-            android:paddingEnd="32dp">
+            android:paddingEnd="32dp" >
 
             <TextView
-                android:id="@+id/inside_group_title"
+                android:id="@+id/group_requests_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
@@ -35,7 +35,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/inside_group_attendees"
+                android:id="@+id/group_requests_attendees"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -44,70 +44,26 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/inside_group_description"
+                android:id="@+id/group_requests_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:scrollHorizontally="true"
                 android:text="GROUP TEXT" />
 
-            <Button
-                android:id="@+id/inside_group_viewRequests_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/button_viewRequests"
-                android:visibility="gone"/>
-
             <TextView
-                android:id="@+id/inside_group_membersHeader"
+                android:id="@+id/group_requests_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Group Members:"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:id="@+id/inside_group_membersLL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical" />
-
-            <TextView
-                android:id="@+id/inside_group_chatHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Group Chat:"
+                android:text="Requests to Join:"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/inside_group_recyclerView"
+                android:id="@+id/group_requests_recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_border">
+                android:layout_height="wrap_content" />
 
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <EditText
-                android:id="@+id/inside_group_textInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_border"
-                android:ems="10"
-                android:gravity="top"
-                android:hint="Type your message..."
-                android:inputType="textMultiLine"
-                android:minHeight="48dp"
-                android:padding="5dp" />
-
-            <Button
-                android:id="@+id/inside_group_sendMessage_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_sendMessage" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

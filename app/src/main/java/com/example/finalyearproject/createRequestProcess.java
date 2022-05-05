@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class retrieveMyGroupsProcess extends AsyncTask<String, Void, String> {
+public class createRequestProcess extends AsyncTask<String, Void, String> {
 
     //initialise AsyncResponse interface as null
     public AsyncResponse delegate = null;
@@ -30,13 +30,17 @@ public class retrieveMyGroupsProcess extends AsyncTask<String, Void, String> {
 
         String result = "";
 
-        //get username
-        String username = strings[0];
+        String senderID = strings[0];
+        String recipientID = strings[1];
+        String groupID = strings[2];
+        String message = strings[3];
+        String seen = strings[4];
 
-        String connstr = "https://www.doc.gold.ac.uk/~ddoch001/Year3/FYP/retrieveMyGroups.php";
+        String connstr = "https://www.doc.gold.ac.uk/~ddoch001/Year3/FYP/createRequest.php";
 
-        //connect to IGOR and use POST to send username
+        //connect to IGOR and use POST to send request details
         try {
+
             URL url = new URL(connstr);
 
             //create connection
@@ -48,7 +52,11 @@ public class retrieveMyGroupsProcess extends AsyncTask<String, Void, String> {
             //encode data to UTF-8
             OutputStream ops = http.getOutputStream();
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(ops,"UTF-8"));
-            String data = URLEncoder.encode("user", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8");
+            String data = URLEncoder.encode("senderID", "UTF-8") + "=" + URLEncoder.encode(senderID, "UTF-8")
+                    + "&&" + URLEncoder.encode("recipientID", "UTF-8") + "=" + URLEncoder.encode(recipientID, "UTF-8")
+                    + "&&" + URLEncoder.encode("groupID", "UTF-8") + "=" + URLEncoder.encode(groupID, "UTF-8")
+                    + "&&" + URLEncoder.encode("message", "UTF-8") + "=" + URLEncoder.encode(message, "UTF-8")
+                    + "&&" + URLEncoder.encode("seen", "UTF-8") + "=" + URLEncoder.encode(seen, "UTF-8");
 
             //send data
             writer.write(data);
@@ -77,7 +85,7 @@ public class retrieveMyGroupsProcess extends AsyncTask<String, Void, String> {
             result = e.getMessage();
         }
 
-        System.out.println("RMGP result: " + result);
+        System.out.println("CRP result: " + result);
         return result;
     }
 }

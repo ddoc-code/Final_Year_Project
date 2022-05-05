@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.finalyearproject.MainActivity;
 import com.example.finalyearproject.R;
 import com.example.finalyearproject.currentUser;
 import com.example.finalyearproject.databinding.FragmentBioBinding;
@@ -39,8 +40,7 @@ public class ProfileFragment extends Fragment {
             container.removeAllViews();
         }
 
-        profileViewModel =
-                new ViewModelProvider(this).get(ProfileViewModel.class);
+        profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -57,9 +57,6 @@ public class ProfileFragment extends Fragment {
         TextView textView = binding.profileUsername;
         profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
             public void onChanged(@Nullable String s) {
                 textView.setText(cu.getUsername());
             }
@@ -102,7 +99,7 @@ public class ProfileFragment extends Fragment {
                     System.out.println("MY INTERESTS");
                     break;
                 case R.id.profile_button_signOut:
-                    System.out.println("SIGN OUT");
+                    signOut();
                     break;
             }
         }
@@ -133,8 +130,13 @@ public class ProfileFragment extends Fragment {
         transaction.commit();
     }
 
-    //implement my interests page
+    //implement my interests page here
 
-    //implement sign out button
+    //implement sign out button (returns to the main activity/login screen)
+    public void signOut() {
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); //this clears the backstack so the user cannot press 'back' to log back in
+        startActivity(intent);
+    }
 
 }
