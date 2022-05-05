@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
         setContentView(R.layout.activity_main);
     }
 
-    //button to login - calls loginProcess (AsyncTask child class)
+    //button to login - executes loginProcess (AsyncTask child class)
     public void enterApp(View view) {
 
         //get user input and convert to string
@@ -38,6 +38,15 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
         lp.delegate = this;
         //execute AsyncTask with username/password parameters
         lp.execute(user, pass);
+    }
+
+    //button to create account - navigates to CreateUserActivity
+    public void createAccountPage(View view) {
+
+        //start next activity (CreateUserActivity)
+        Intent intent = new Intent(this, CreateUserActivity.class);
+        startActivity(intent);
+
     }
 
     //response from AsyncTask via AsyncResponse interface
